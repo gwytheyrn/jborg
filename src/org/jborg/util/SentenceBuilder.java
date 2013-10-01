@@ -13,7 +13,7 @@ public class SentenceBuilder {
     private LinkedList<String> words;
     
     public SentenceBuilder() {
-         words = new LinkedList<>();
+         words = new LinkedList<String>();
     }
     
     public void addFirst(String word) {
