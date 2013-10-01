@@ -5,7 +5,6 @@
 package org.jborg.util;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.List;
 
 /**
@@ -28,7 +27,6 @@ public class Sentence implements Comparable<Sentence> {
     ///</editor-fold>
     
     ///<editor-fold desc="Public Methods">
-    @Override
     public int compareTo(Sentence s) {
         int minLength = Math.min(s.size(), size());
         for(int i=0; i<minLength; i++) {
@@ -62,8 +60,9 @@ public class Sentence implements Comparable<Sentence> {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.words);
         for(String s : words) {
+            //Any sentence containing the same set of words will has to the same
+            //value.  This is fine by me
             hash = hash ^ s.hashCode();
         }
         return hash;
@@ -82,11 +81,11 @@ public class Sentence implements Comparable<Sentence> {
     public String toString() {
         StringBuilder buffer = new StringBuilder();
         if(words.size()>0) {
-            for (int i = 0; i < words.size(); i++) {
+            for (int i = 0; i < words.size()-1; i++) {
                 buffer.append(words.get(i));
                 buffer.append(' ');
             }
-            buffer.append(words.size()-1);
+            buffer.append(words.get(words.size()-1));
         }
         return buffer.toString();
     }
