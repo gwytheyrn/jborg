@@ -18,8 +18,14 @@ public class JBorg {
     ///<editor-fold desc="Constructors">
     public JBorg() {
         this.numContexts = 0;
-        this.maxContextDepth = 10;
-        this.minContextDepth = 5;
+        this.maxContextDepth = 5;
+        this.minContextDepth = 1;
+    }
+    
+    public JBorg(int minContextDepth, int maxContextDepth) {
+        this.numContexts = 0;
+        this.maxContextDepth = maxContextDepth;
+        this.minContextDepth = minContextDepth;
     }
     ///</editor-fold>
     
